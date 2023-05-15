@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TreeDataUI : MonoBehaviour
 {
-
+    private string backendURL="http://localhost:3000/treedata";
     private TreeData myTreeData;
 
     void Start()
@@ -21,7 +21,7 @@ public class TreeDataUI : MonoBehaviour
 
     IEnumerator Upload(string profile, System.Action<bool> callback = null)
     {
-        using (UnityWebRequest request = new UnityWebRequest("http://localhost:3000/treedata", "POST"))
+        using (UnityWebRequest request = new UnityWebRequest(backendURL, "POST"))
         {
             request.SetRequestHeader("Content-Type", "application/json");
             byte[] bodyRaw = Encoding.UTF8.GetBytes(profile);

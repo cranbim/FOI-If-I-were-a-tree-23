@@ -12,8 +12,8 @@ public class TreeData
         return JsonUtility.ToJson(this);
     }
 
-    public static PlayerData Parse(string json)
+    public static TreeData Parse(string json)
     {
-        return JsonUtility.FromJson<PlayerData>(json);
+        return JsonUtility.FromJson<TreeData>(json);
     }
 }
