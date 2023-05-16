@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class TreeDataUI : MonoBehaviour
 {
-    private string backendURL="http://localhost:3000/treedata";
+    private String backendURL="https://foi23-if-i-were-a-tree.glitch.me/treedata";
+    // private String backendURL="http://localhost:3000/treedata";
     private TreeData myTreeData;
 
     void Start()

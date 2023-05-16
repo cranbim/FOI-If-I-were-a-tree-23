@@ -4,7 +4,8 @@ using Newtonsoft.Json;
 
 public class TreeDataUI : MonoBehaviour
 {
-    private String backendURL="http://localhost:3000/treedata/"
+    private String backendURL="https://foi23-if-i-were-a-tree.glitch.me/treedata";
+    // private String backendURL="http://localhost:3000/treedata/"
     // private TreeData myTreeData;
     private IList<TreeData> treeDataList;
 
