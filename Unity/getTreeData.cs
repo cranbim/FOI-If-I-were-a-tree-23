@@ -1,6 +1,8 @@
 using UnityEngine;
 using System;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 
 public class TreeDataUI : MonoBehaviour
 {
@@ -22,7 +24,7 @@ public class TreeDataUI : MonoBehaviour
         }));
     }
 
-    IEnumerator Download(System.Action<PlayerData> callback = null)
+    IEnumerator Download(System.Action<TreeData> callback = null)
     {
         using (UnityWebRequest request = UnityWebRequest.Get(backendURL))
         {
@@ -40,35 +42,15 @@ public class TreeDataUI : MonoBehaviour
             {
                 if (callback != null)
                 {
-                    callback.Invoke(PlayerData.Parse(request.downloadHandler.text));
+                    callback.Invoke(TreeData.Parse(request.downloadHandler.text));
                 }
             }
         }
     }
 }
 
-string json = @"{
-  'd': [
-    {
-      'Name': 'John Smith'
-    },
-    {
-      'Name': 'Mike Smith'
-    }
-  ]
-}";
 
-JObject o = JObject.Parse(json);
 
-JArray a = (JArray)o["d"];
-
-IList<Person> person = a.ToObject<IList<Person>>();
-
-Console.WriteLine(person[0].Name);
-// John Smith
-
-Console.WriteLine(person[1].Name);
-// Mike Smith
 
 
 
